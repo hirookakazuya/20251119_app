@@ -1,0 +1,29 @@
+/* /app/dashboard/TodoList.module.css */
+
+.createButton,.deleteButton {
+    background-color: #585858;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.createButton:hover,.deleteButton:hover {
+    background-color: #939393; /* マウスオーバーで色が変わる */
+}
+
+.listItem {
+
+    color: white;
+    padding: 10px 15px;
+    border: none;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.listItem:hover {
+    color: #939393; /* マウスオーバーで色が変わる */
+}
