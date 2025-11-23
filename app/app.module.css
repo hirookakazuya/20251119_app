@@ -1,0 +1,132 @@
+.signOutButton {
+    background-color: #585858;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-Right: 'auto';
+    display: 'block';
+}
+
+.signOutButton:hover {
+    background-color: #939393;
+    /* マウスオーバーで色が変わる */
+}
+
+/* app/app.module.css (追記・修正) */
+
+/* ヘッダー全体の設定 (変更なし) */
+.header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px;
+    background-color: #000000; 
+    border-bottom: 1px solid #eee;
+    width: 100%;
+  }
+  
+  /* ニックネームのコンテナを相対位置指定 */
+  .profileDropdown {
+    position: relative; /* 子要素のメニューを絶対位置で配置するため */
+    display: inline-block;
+  }
+  
+  /* ニックネームのボタン */
+  .nicknameButton {
+    background: none;
+    border: none;
+    font-size: 1.0rem; /* h1と同じサイズ */
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  .nicknameButton:hover {
+    color: #8e8e8e;
+  }
+  
+  /* ドロップダウンメニューのスタイル */
+  .dropdownMenu {
+    position: absolute;
+    top: 100%; /* ボタンのすぐ下に配置 */
+    right: 0;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    z-index: 100; /* 他の要素より手前に表示 */
+  }
+  
+  .dropdownMenu li {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .dropdownMenu li:hover {
+    background-color: #434343;
+  }
+
+  /* app/app.module.css (追記) */
+
+/* 💡 モーダルの背景（オーバーレイ） */
+.modalOverlay {
+    position: fixed; /* 画面全体を覆う */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+    display: flex;
+    justify-content: center; /* コンテンツを中央に配置 */
+    align-items: center;
+    z-index: 1000; /* 他のすべてのコンテンツの上に表示 */
+  }
+  
+  /* 💡 モーダルの中身 */
+  .modalContent {
+    background-color: rgb(0, 0, 0);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    max-width: 500px; /* 最大幅を設定 */
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative; /* 閉じるボタンを絶対位置で配置するため */
+  }
+  
+  /* 💡 モーダルを閉じるボタン */
+  .modalCloseButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1; /* 行の高さを調整 */
+  }
+  
+  /* サイドバーの基本的なスタイル (isMenuOpen 用) */
+  .sidebar {
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    width: 250px; /* 例 */
+    /* 必要に応じて position: fixed なども検討 */
+  }
+
+  .nodeList {
+    margin-top:10px;
+  }
+
+  .menuButton:hover {
+    color: #959595;
+  }

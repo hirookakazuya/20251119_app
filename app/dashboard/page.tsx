@@ -8,6 +8,10 @@ import { useAmplifyClient } from '@/app/useAmplifyClient';
 
 import styles from './NotesList.module.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'; // solid（塗りつぶし）アイコンから trash-alt をインポート
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
 export default function NotesList() {
     // Hooksの初期化
     const client = useAmplifyClient();
@@ -89,13 +93,19 @@ export default function NotesList() {
     // メインのUI
     return (
         <div>
-            <h2>メモ一覧</h2>
+
             <button
                 style={{
-                    cursor: 'pointer' // マウスカーソルを変更してクリック可能であることを示す
+                    cursor: 'pointer', // マウスカーソルを変更してクリック可能であることを示す
+                    marginTop: '10px'
                 }}
                 className={styles.createButton}
-                onClick={navigateToCreate}>新規メモを作成</button>
+                onClick={navigateToCreate}>
+                <FontAwesomeIcon
+                    icon={faPlus}
+                    style={{ fontSize: '18px', color: 'white' }} // スタイルで色やサイズを調整
+                />
+            </button>
             <ul>
                 {notes.map(({ id, title, body }) => (
                     // 🚨 修正ポイント 1: <li>全体に onClick を追加し、編集ページへ遷移させる
@@ -119,21 +129,13 @@ export default function NotesList() {
                         {/* 修正ポイント 2: Editボタンは不要になるため削除（または非表示） */}
                         {/* 修正ポイント 3: DeleteボタンのonClickでイベント伝播を停止させる */}
                         <button
-                            style={{
-                                // 修正後のスタイル: キャメルケースに修正し、右寄せ（配置）を試みる
-                                // インライン要素の右寄せは親要素の text-align で行う方が一般的ですが、
-                                // ボタン自体を右に寄せるためにブロック要素と margin-left: auto を適用します。
-                                marginLeft: 'auto', // 可能な限り右へ移動
-                                display: 'block',   // margin-left: auto が効くようにブロック要素化
-                                // textAlign: 'right', // ボタンの配置には効果が薄い
-                            }}
-                            className={styles.deleteButton}
+                            className={styles.listDeleteButton}
                             onClick={(e) => {
                                 e.stopPropagation(); // 👈 これが重要！親要素(<li>)への伝播を停止　//
                                 deleteNote(id);
                             }}
                         >
-                            Delete
+                            <FontAwesomeIcon icon={faTrashAlt} className={styles.listDeleteIcon} />
                         </button>
                     </li>
                 ))}
